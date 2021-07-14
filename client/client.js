@@ -1,6 +1,6 @@
 /*
  *
- * NOTE: The client side of hack.chat is currently in development,
+ * NOTE: The client side of inull.es is currently in development,
  * a new, more modern but still minimal version will be released
  * soon. As a result of this, the current code has been deprecated
  * and will not actively be updated.
@@ -135,7 +135,7 @@ var frontpage = [
     "",
     "Bots, Android clients, desktop clients, browser extensions, docker images, programming libraries, server modules and more: Soon",
     "",
-    "No message history is retained on the hack.chat server."
+    "No message history is retained on the inull server."
 ].join("\n");
 
 function $(query) {
@@ -171,7 +171,7 @@ function RequestNotifyPermission() {
         var notifyPromise = Notification.requestPermission();
         if (notifyPromise) {
             notifyPromise.then(function(result) {
-                console.log("Hack.Chat notification permission: " + result);
+                console.log("inull.es notification permission: " + result);
                 if (result === "granted") {
                     if (notifyPermissionExplained === 0) {
                         pushMessage({
@@ -295,9 +295,9 @@ function notify(args) {
 }
 
 function join(channel) {
-    if (document.domain == 'hack.chat') {
-        // For https://hack.chat/
-        ws = new WebSocket('wss://hack.chat/chat-ws');
+    if (document.domain == 'inull.es') {
+        // For https://inull.es/
+        ws = new WebSocket('wss://inull.es/chat-ws');
     } else {
         // for local installs
         var protocol = location.protocol === 'https:' ? 'wss:' : 'ws:'
@@ -526,7 +526,7 @@ function updateTitle() {
     if (myChannel) {
         title = "?" + myChannel;
     } else {
-        title = "hack.chat";
+        title = "inull.es";
     }
 
     if (unread > 0) {
